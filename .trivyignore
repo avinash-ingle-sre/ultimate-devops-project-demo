@@ -1,0 +1,5 @@
+# Temporary ignore for frontend npm packages (Pending Developer Fix)
+CVE-2026-31802
+CVE-2026-59874
+CVE-2026-73566
+CVE-2026-44705

@@ -16,8 +16,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build Frontend Docker Image
-        working-directory: ./src/frontend
         run: |
-          echo "Building frontend service image..."
-          docker build -t frontend-service:test .
+          echo "Building frontend service image from root context..."
+          docker build -t frontend-service:test -f ./src/frontend/Dockerfile .
           echo "Build Successful!"

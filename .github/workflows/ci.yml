@@ -20,3 +20,13 @@ jobs:
           echo "Building frontend service image from root context..."
           docker build -t frontend-service:test -f ./src/frontend/Dockerfile .
           echo "Build Successful!"
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'frontend-service:test'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
